@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitalCraft - Agence Marketing Digital & Web, Yaoundé</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            margin: 0;
+        }
+        h1 {
+            color: orange;
+            text-align: center;
+        }
+        h2 {
+            color: #00ffcc;
+            border-bottom: 2px solid #00ffcc;
+            padding-bottom: 5px;
+        }
+        p {
+            line-height: 1.6;
+        }
+        div {
+            margin-bottom: 30px;
+        }
+        ul {
+            list-style-type: square;
+        }
+
+        /* Menu de navigation (Flexbox) */
+        .menu {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        .menu a {
+            background-color: #00ffcc;
+            color: black;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        /* Bouton devis / WhatsApp */
+        .cta-btn {
+            display: block;
+            width: fit-content;
+            background-color: orange;
+            color: black;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px auto;
+            font-weight: bold;
+        }
+        .whatsapp-btn {
+            display: block;
+            width: fit-content;
+            background-color: #00ffcc;
+            color: black;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        /* Cartes services */
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .service-card {
+            background-color: #1A1A1A;
+            border: 1px solid #00ffcc;
+            border-radius: 8px;
+            padding: 15px;
+            width: 220px;
+            margin-bottom: 0;
+        }
+        .service-card h3 {
+            color: orange;
+            margin-top: 0;
+        }
+
+        /* Image */
+        img {
+            max-width: 100%;
+            height: auto;
+            box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+
+        /* Section contact */
+        .contact {
+            background-color: #1A1A1A;
+            padding: 15px;
+            border-left: 4px solid orange;
+            border-radius: 8px;
+        }
+
+        /* Formulaire */
+        input, textarea {
+            width: 100%;
+            max-width: 300px;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: none;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #00ffcc;
+            color: black;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        /* Menu mobile (hamburger) */
+        #menuMobile {
+            display: none;
+            background-color: #1A1A1A;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        #menuMobile p {
+            margin: 8px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .menu {
+                flex-direction: column;
+            }
+            h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menu hamburger (mobile) -->
+    <button onclick="toggleMenu()">☰ Menu</button>
+    <div id="menuMobile">
+        <p>Accueil</p>
+        <p>Services</p>
+        <p>Contact</p>
+    </div>
+
+    <!-- Menu de navigation principal -->
+    <div class="menu">
+        <a href="#accueil">Accueil</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <h1 id="accueil">DigitalCraft</h1>
+    <p style="text-align:center;">Agence de marketing digital & développement web à Yaoundé.</p>
+
+    <a class="cta-btn" href="#contact">Demander un devis gratuit</a>
+
+    <div>
+        <h2>À propos de nous</h2>
+        <p>DigitalCraft accompagne les petites et moyennes entreprises de Yaoundé dans leur visibilité en ligne : réseaux sociaux, contenu, publicité, et sites web sur-mesure. Une approche artisanale, pensée pour chaque client.</p>
+    </div>
+
+    <div id="services">
+        <h2>Nos Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Réseaux sociaux</h3>
+                <p>Gestion complète de vos pages Facebook, Instagram et TikTok.</p>
+            </div>
+            <div class="service-card">
+                <h3>Création de contenu</h3>
+                <p>Visuels, textes et vidéos adaptés à votre image de marque.</p>
+            </div>
+            <div class="service-card">
+                <h3>Publicité en ligne</h3>
+                <p>Campagnes ciblées pour attirer de nouveaux clients.</p>
+            </div>
+            <div class="service-card">
+                <h3>Création de sites web</h3>
+                <p>Sites vitrines modernes, rapides et adaptés au mobile.</p>
+            </div>
+        </div>
+    </div>
+
+    <a class="whatsapp-btn" href="https://wa.me/237698357391">Me contacter sur WhatsApp</a>
+
+    <div class="contact" id="contact">
+        <h2>Contact</h2>
+        <p>
+            <strong>Adresse :</strong> Yaoundé, Cameroun<br>
+            <strong>Téléphone :</strong> +237 698 357 391
+        </p>
+    </div>
+
+    <div>
+        <h2>Demander un devis</h2>
+        <form>
+            <label>Nom :</label><br>
+            <input type="text" id="nom" placeholder="Votre nom"><br>
+
+            <label>Email :</label><br>
+            <input type="email" id="email" placeholder="Votre email"><br>
+
+            <label>Message :</label><br>
+            <textarea id="message" rows="4" placeholder="Parlez-moi de votre projet"></textarea><br>
+
+            <button type="button" onclick="envoyerMessage()">Envoyer</button>
+            <p id="confirmationForm"></p>
+        </form>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menuMobile');
+            if (menu.style.display === 'none' || menu.style.display === '') {
+                menu.style.display = 'block';
+            } else {
+                menu.style.display = 'none';
+            }
+        }
+
+        function envoyerMessage() {
+            var nom = document.getElementById('nom').value;
+            var email = document.getElementById('email').value;
+            var message = document.getElementById('message').value;
+
+            if (nom === "" || email === "" || message === "") {
+                document.getElementById('confirmationForm').innerText = "Merci de remplir tous les champs.";
+            } else {
+                document.getElementById('confirmationForm').innerText = "Merci " + nom + ", votre demande a été reçue !";
+            }
+        }
+    </script>
+
+</body>
+</html>

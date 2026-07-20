@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DigitalCraft — Agence Marketing Digital &amp; Web, Yaoundé</title>
+<title>DigitalCraft — Agence Marketing Digital &amp; Web </title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -157,20 +157,48 @@
   .pillar h3{font-size:1.15rem; color:var(--cream);}
   .pillar p{margin:0; font-size:.92rem;}
 
-  /* ---- SERVICES ---- */
+  /* ---- SERVICES : grille bento interactive ---- */
   .services-section{background:var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
-  .services-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-top:36px;}
+  .services-grid{
+    display:grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    grid-auto-rows: 180px;
+    gap:16px;
+    margin-top:36px;
+  }
   .service-card{
     background:linear-gradient(160deg, var(--surface-2), #10131A);
     border:1px solid var(--line); border-radius:var(--radius);
-    padding:26px; transition:.25s border-color, .25s transform;
+    padding:24px; cursor:pointer; position:relative;
+    transition:.25s border-color, .25s transform, .25s background;
   }
   .service-card:hover{border-color:var(--teal); transform:translateY(-3px);}
-  .service-card h3{font-size:1.1rem; color:var(--cream); margin-bottom:8px;}
-  .service-card p{margin:0; font-size:.92rem;}
+  .service-card.expanded{border-color:var(--gold); background:linear-gradient(160deg, #1F2430, #14171F);}
+  .service-card.featured{ grid-row: span 2; }
+  .service-card.wide{ grid-column: span 2; }
+  .service-card h3{font-size:1.1rem; color:var(--cream); margin-bottom:6px;}
+  .service-card p{margin:0; font-size:.9rem;}
   .service-card .num{
     font-family:'JetBrains Mono',monospace; color:var(--teal); font-size:.78rem;
     display:block; margin-bottom:10px;
+  }
+  .service-card .chevron{
+    position:absolute; top:20px; right:20px;
+    width:22px; height:22px; border:1px solid var(--line); border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:.8rem; color:var(--teal); transition:.3s transform;
+  }
+  .service-card.expanded .chevron{transform:rotate(45deg); border-color:var(--gold); color:var(--gold);}
+  .service-card .more{
+    max-height:0; overflow:hidden; opacity:0;
+    transition:max-height .4s ease, opacity .3s ease, margin-top .3s ease;
+    font-size:.85rem; color:var(--muted); margin-top:0;
+  }
+  .service-card.expanded .more{ max-height:200px; opacity:1; margin-top:12px; padding-top:12px; border-top:1px dashed var(--line); }
+
+  @media (max-width:760px){
+    .services-grid{ grid-template-columns:1fr; grid-auto-rows:auto; }
+    .service-card.featured, .service-card.wide{ grid-column:span 1; grid-row:span 1; }
   }
 
   /* ---- PROCESS ---- */
@@ -289,27 +317,36 @@
     <span class="eyebrow">ce que je fais</span>
     <h2 style="font-size:1.7rem;">Nos services</h2>
     <div class="services-grid">
-      <div class="service-card">
-        <span class="num">→ social</span>
-        <h3>Réseaux sociaux</h3>
-        <p>Gestion complète de vos pages Facebook, Instagram et TikTok : calendrier, publications, animation.</p>
-      </div>
-      <div class="service-card">
-        <span class="num">→ contenu</span>
-        <h3>Création de contenu</h3>
-        <p>Visuels, textes et vidéos pensés pour votre image de marque et votre audience.</p>
-      </div>
-      <div class="service-card">
-        <span class="num">→ publicité</span>
-        <h3>Publicité en ligne</h3>
-        <p>Des campagnes ciblées pour attirer de nouveaux clients, avec un budget maîtrisé.</p>
-      </div>
-      <div class="service-card">
+      <div class="service-card featured" onclick="this.classList.toggle('expanded')">
+        <span class="chevron">+</span>
         <span class="num">→ web</span>
         <h3>Création de sites web</h3>
         <p>Des sites vitrines modernes, rapides et adaptés au mobile — comme celui-ci.</p>
+        <div class="more">Structure sur-mesure, formulaire de contact fonctionnel, animations soignées et hébergement inclus. Livré prêt à convaincre vos futurs clients.</div>
+      </div>
+      <div class="service-card" onclick="this.classList.toggle('expanded')">
+        <span class="chevron">+</span>
+        <span class="num">→ social</span>
+        <h3>Réseaux sociaux</h3>
+        <p>Gestion de vos pages Facebook, Instagram et TikTok.</p>
+        <div class="more">Calendrier de publication, animation de la communauté, réponses aux messages et suivi des performances chaque mois.</div>
+      </div>
+      <div class="service-card" onclick="this.classList.toggle('expanded')">
+        <span class="chevron">+</span>
+        <span class="num">→ contenu</span>
+        <h3>Création de contenu</h3>
+        <p>Visuels, textes et vidéos pour votre marque.</p>
+        <div class="more">Photos et visuels retouchés, légendes qui donnent envie de lire, et un ton qui vous ressemble sur chaque publication.</div>
+      </div>
+      <div class="service-card wide" onclick="this.classList.toggle('expanded')">
+        <span class="chevron">+</span>
+        <span class="num">→ publicité</span>
+        <h3>Publicité en ligne</h3>
+        <p>Des campagnes ciblées pour attirer de nouveaux clients, avec un budget maîtrisé.</p>
+        <div class="more">Ciblage précis par âge, quartier et centres d'intérêt. Suivi hebdomadaire du coût par client obtenu, pour ne jamais dépenser à l'aveugle.</div>
       </div>
     </div>
+    <p class="eyebrow" style="margin-top:18px; opacity:.7;">touchez une carte pour en savoir plus</p>
   </div>
 </section>
 
@@ -367,7 +404,7 @@
 
 <footer>
   <div class="wrap">
-    <p>DigitalCraft — Agence marketing digital &amp; web, Yaoundé © 2026</p>
+    <p>DigitalCraft — Agence marketing digital &amp; web,Cameroun© 2026</p>
   </div>
 </footer>
 
